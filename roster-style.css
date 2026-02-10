@@ -638,7 +638,7 @@
     .player-photo-mobile {
         width: 210px;
         height: 210px;
-        margin: -420px auto 10px;
+        margin: -190px auto 10px;
         border-width: 1px;
     }
     
@@ -696,6 +696,7 @@
         padding: 0 12px 12px !important;
     }
 }
+
 
 
 
