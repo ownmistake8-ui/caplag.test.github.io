@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapLag | Состав команды CS2</title>
+    <meta name="description" content="Официальный состав команды CapLag по CS2. Игроки, статистика, конфиги и Faceit профили.">
+    <meta name="keywords" content="CapLag, CS2, состав, игроки, статистика, конфиги, Faceit, wh1testxr, malce, oston, setqa, Sip1z">
+    
+    <!-- Preload критических ресурсов -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="roster-style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="roster-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Иконка Faceit -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        /* Инлайн стили для конфигов и Faceit */
+        .config-download {
+            position: absolute;
+            top: 10px;
+            right: -60px;
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            text-decoration: none;
+        }
+        
+        .config-download:hover {
+            background: rgba(118, 255, 3, 0.1);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px rgba(118, 255, 3, 0.35);
+        }
+        
+        .config-icon {
+            width: 24px;
+            height: 24px;
+            color: #76ff03;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        
+        .config-download:hover .config-icon {
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        
+        .config-tooltip {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #76ff03;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #76ff03;
+            z-index: 20;
+        }
+        
+        .config-download:hover .config-tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -45px;
+        }
+        
+        .p-detail-nick {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .faceit-link {
+            position: absolute;
+            top: 10px;
+            right: -120px;
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            text-decoration: none;
+        }
+        
+        .faceit-link:hover {
+            background: rgba(255, 105, 0, 0.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 105, 0, 0.35);
+        }
+        
+        .faceit-icon {
+            width: 28px;
+            height: 28px;
+            color: #FF6900;
+            transition: all 0.3s ease;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .faceit-link:hover .faceit-icon {
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        
+        .faceit-tooltip {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #FF6900;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #FF6900;
+            z-index: 20;
+        }
+        
+        .faceit-link:hover .faceit-tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -45px;
+        }
+        
+        /* Стили для текстовой иконки Faceit */
+        .faceit-text-icon {
+            font-family: 'Arial', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #FF6900;
+            transition: all 0.3s ease;
+        }
+        
+        .faceit-link:hover .faceit-text-icon {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        
+        /* Адаптация для мобильных */
+        @media (max-width: 1000px) {
+            .config-download,
+            .faceit-link {
+                position: relative;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                margin: 10px 5px;
+            }
+            
+            .config-tooltip,
+            .faceit-tooltip {
+                display: none;
+            }
+            
+            .p-detail-nick {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .faceit-link {
+                margin-left: 10px;
+            }
+        }
+        
+        /* Lazy loading для изображений */
+        .player-photo-bg[data-src][src=""] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .player-photo-bg.loaded {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js" aria-hidden="true"></div>
+    
+    <aside class="sidebar">
+        <div>
+            <div class="logo-area" onclick="window.location.href='index.html'">
+                <img src="CapLag_logo.jpg" alt="Logo" class="logo-img">
+                <span>CAPLAG</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="roster.html" class="active">Состав</a></li>
+                    <li><a href="merch.html">Магазин</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="sidebar-socials">
+            <p class="socials-title">Мы в сети:</p>
+            <div class="socials-grid">
+                <a href="https://vk.com/твой_вк" class="social-link vk" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://t.me/твой_тг" class="social-link tg" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://discord.gg/твой_дс" class="social-link ds" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                &copy; 2026 CapLag.gg<br>
+                Designed for Victory.
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="roster-page-wrapper">
+            <div class="players-list-column">
+                <a href="index.html" class="back-link">&larr; Назад на главную</a>
+                
+                <div class="player-nav-item active" onclick="showPlayer('wh1testxr')" role="button" tabindex="0">
+                    <div class="p-nav-nick">wh1testxr</div>
+                    <div class="p-nav-name">Виталий Столяров</div>
+                </div>
+
+                <div class="player-nav-item" onclick="showPlayer('malce')" role="button" tabindex="0">
+                    <div class="p-nav-nick">malce-</div>
+                    <div class="p-nav-name">Илья Мальцев</div>
+                </div>
+
+                <div class="player-nav-item" onclick="showPlayer('oston')" role="button" tabindex="0">
+                    <div class="p-nav-nick">oston</div>
+                    <div class="p-nav-name">Владислав Мезин</div>
+                </div>
+
+                <div class="player-nav-item" onclick="showPlayer('setqa')" role="button" tabindex="0">
+                    <div class="p-nav-nick">setqa</div>
+                    <div class="p-nav-name">Виктор Королев</div>
+                </div>
+
+                <div class="player-nav-item" onclick="showPlayer('Sip1z')" role="button" tabindex="0">
+                    <div class="p-nav-nick">Sip1z</div>
+                    <div class="p-nav-name">Теодор Карманов</div>
+                </div>
+            </div>
+
+            <div class="player-details-column" id="details-view">
+                <div class="player-info-content reveal">
+                    <div class="p-detail-role" id="p-role">РИФЛЕР</div>
+                    <h1 class="p-detail-nick" id="p-nick">wh1testxr
+                        <a href="configs/wh1testxr_config.cfg" class="config-download" download="wh1testxr_config.cfg">
+                            <i class="fas fa-cog config-icon" aria-hidden="true"></i>
+                            <span class="config-tooltip">Скачать конфиг</span>
+                        </a>
+                        <a href="https://www.faceit.com/ru/players/wh1testxr" class="faceit-link" target="_blank" rel="noopener noreferrer">
+                            <span class="faceit-text-icon">F</span>
+                            <span class="faceit-tooltip">Faceit профиль</span>
+                        </a>
+                    </h1>
+                    <p class="p-detail-bio" id="p-bio">
+                        Ведущий рифлер команды. Известен своей агрессивной игрой на входах и стабильно высоким уроном. Играет за CapLag с основания организации.
+                    </p>
+                </div>
+                <img src="images/Whitestar.png" 
+                     
+                     class="player-photo-bg loaded" 
+                     id="p-img" 
+                     alt="Фото игрока wh1testxr"
+                     loading="lazy">
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="roster-script.js"></script>
+    
+    <noscript>
+        <style>
+            .sidebar { display: none; }
+            main { margin-left: 0; width: 100%; }
+            .reveal { opacity: 1; transform: none; }
+        </style>
+        <div style="position: fixed; top: 0; left: 0; right: 0; background: #ff4757; color: white; padding: 10px; text-align: center; z-index: 9999;">
+            ⚠️ Для полноценной работы сайта требуется JavaScript. Пожалуйста, включите его в настройках браузера.
+        </div>
+    </noscript>
+    <!-- Вставьте этот код в player-details-column, перед player-info-content -->
+    <img src="images/Whitestar.png" 
+        class="player-photo-mobile loaded" 
+        id="p-img-mobile" 
+        alt="Фото игрока"
+        loading="lazy">
+</body>
+</html>
